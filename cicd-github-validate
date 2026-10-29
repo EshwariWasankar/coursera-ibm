@@ -1,4 +1,21 @@
-PENDING: Capture the successful GitHub Actions job output after the workflow
-has run on GitHub. Do not replace this note with local test output. Include the
-workflow run URL and the output showing checkout, setup, dependency install,
-Flake8, and Nose all completed successfully.
+GitHub Actions validation output
+Workflow: CI
+Run: https://github.com/EshwariWasankar/coursera-ibm/actions/runs/40927268262
+Job: lint-and-test (success)
+Commit: fe4b3afaf8c51e311e0ef3db82d9658d843135e8
+
+2026-10-29T18:04:08Z  Set up job                         success
+2026-10-29T18:04:08Z  Check out source                   success
+2026-10-29T18:04:09Z  Set up Python 3.9.25               success
+2026-10-29T18:04:18Z  Install requirements-dev.txt       success
+                       Successfully installed Flask-3.1.3, flake8-7.3.0,
+                       and nose-1.3.7
+2026-10-29T18:04:20Z  Run flake8 .
+                       flake8 .
+                       Success (exit code 0)
+2026-10-29T18:04:20Z  Run nosetests --verbosity=2
+                       test_health_endpoint ... ok
+                       test_root_reports_service_and_port ... ok
+                       Ran 2 tests in 0.086s
+                       OK
+2026-10-29T18:04:21Z  Complete job                       success
