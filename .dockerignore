@@ -1,0 +1,7 @@
+.git
+.github
+.tekton
+evidence
+test_app.py
+__pycache__
+*.py[cod]

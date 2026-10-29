@@ -1,0 +1,3 @@
+PENDING: Capture actual application logs from the OpenShift pod after a
+successful rollout. The running service should log "SERVICERUNNING on port
+8000" at startup. Do not submit this note as cluster log evidence.

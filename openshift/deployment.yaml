@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coursera-sample
+  labels:
+    app: coursera-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coursera-sample
+  template:
+    metadata:
+      labels:
+        app: coursera-sample
+    spec:
+      containers:
+        - name: coursera-sample
+          image: image-to-be-set-by-pipeline
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coursera-sample
+spec:
+  selector:
+    app: coursera-sample
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+      protocol: TCP
